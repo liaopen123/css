@@ -1,0 +1,37 @@
+h1{
+    color: yellow;
+}
+
+.clz{
+    color: blue;
+}
+
+#idtest{
+    color: aqua;
+}
+
+[title]{
+    color: brown;
+}
+[title=title2]{
+    color:green;
+}
+[title~=title3]{
+    color:greenyellow;
+}
+
+
+[title^=hello]{
+    color:pink;
+}
+[title|=hello]{
+    color:blueviolet;
+}
+[title$=world1]{
+    color:palegoldenrod;
+}
+
+[title*=only]{
+    color:peru;
+}
+
