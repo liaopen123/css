@@ -1,0 +1,63 @@
+.indent{
+    text-indent: 5em;
+}
+.indent_percent{
+    text-indent: 20%;
+}
+.align_left{
+    text-align: left;
+}
+.align_center{
+    text-align: center;
+}
+.align_right{
+    text-align: right;
+}
+.align_justify{
+    text-align: justify;
+}
+.div_inherit{
+    text-align: right;  
+}
+.align_inherit{
+    text-align: inherit;
+}
+.wordSpacing1{
+    word-spacing: 40px;
+    color: yellow;
+}
+.wordSpacing2{
+    word-spacing: -0.5em;
+}
+.letterSpacing1{
+    letter-spacing: 1em;
+}.letterSpacing2{
+    letter-spacing: -0.5em;
+}
+
+.none_tranfer{
+    text-transform: none;
+}
+.upper{
+    text-transform: uppercase;
+}
+.low{
+    text-transform: lowercase;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.text_underline{
+text-decoration: underline;
+}
+.text_overline{
+    text-decoration: overline;
+    
+}.text_line-through{
+    text-decoration: line-through;
+}
+.whiteSpace{
+    white-space: nowrap;
+}

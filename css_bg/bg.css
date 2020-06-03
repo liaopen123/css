@@ -1,0 +1,47 @@
+html{
+    background-color: yellow;
+    padding: 20px;
+}
+.image_bg{
+    height: 360px;
+    width: 640px;
+    background-image: url(../assets/bg.jpg);
+}
+
+.repeat{
+    margin-top: 40px;
+    width: 100%;
+    height: 600px;
+    background-image: url(../assets/bg.jpg);
+    background-repeat: repeat;
+}
+
+.big_bg{
+    height: 800px;
+    width: 800px;
+ background-color: black;
+ color: white;
+}
+.position{
+    background-image: url(../assets/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.position1{
+    background-image: url(../assets/bg.jpg);
+    background-position: 30% 50%;
+    background-repeat: no-repeat;
+}
+.position2{
+    background-image: url(../assets/bg.jpg);
+    background-position: 10px 20px;
+    background-repeat: no-repeat;
+}
+.position3{
+    font-size: 60px;
+    height: 360px;
+    width: 640px;
+    background-position: top;
+    background-image: url(https://www.17qq.com/img_qqtouxiang/59681934.jpeg);
+    background-attachment: fixed;
+}
