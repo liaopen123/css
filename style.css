@@ -34,4 +34,9 @@ h1{
 [title*=only]{
     color:peru;
 }
-
+p.out{
+    color: red;
+}
+.import.warning{
+    background-color: yellow;
+}

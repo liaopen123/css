@@ -1,0 +1,15 @@
+.outer{
+  outline: dotted;
+  outline-width: 1px;
+  background-color: #fcf5f1;
+  width: 400px;
+  height: 400px;
+}
+p.middle{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    outline: thick;
+    outline-color: #fd6361;
+    background-color: white;
+}

@@ -1,0 +1,28 @@
+table,th,td{
+    border: 1px solid blue;
+    border-radius: 10px;
+ 
+}
+
+table.collasper{
+    border-collapse: collapse;
+}
+
+table.full{
+    width: 100%;
+    background-color: brown;
+}
+.height{
+    height: 100px;
+    text-align: left;
+    padding: 20px;
+    color: yellow;
+    background-color: black;
+}
+#customers{
+    width: 100%;
+    border-collapse: collapse;
+}
+.alt{
+    background-color: #eaf2d3;
+}

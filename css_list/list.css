@@ -1,6 +1,23 @@
-ul{
-    list-style-type: disc;
+.ul1{
+    list-style-type: circle;
 }
-ul{
-    list-style-image: url("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1648867377,2049739541&fm=26&gp=0.jpg"),inside;
+.ul2{
+    list-style-type: square;
+}
+.ul3{
+    list-style-type: upper-roman;
+}
+.ul4{
+    list-style-type: lower-alpha;
+}
+.ul5{
+    list-style-image: url("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1648867377,2049739541&fm=26&gp=0.jpg");
+}
+.ul6inner{
+    list-style-type: circle;
+    list-style-position: inside;
+}
+.ul6outter{
+    list-style-type: circle;
+    list-style-position: outside;
 }
