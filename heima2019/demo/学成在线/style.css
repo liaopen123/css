@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.container {
+    background-color: #f3f5f7;
+}
+
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+.header {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.logo {
+    float: left;
+    margin-left: 120px;
+    background-image: url(image/icon_logo.png);
+    width: 195px;
+    height: 42px;
+}
+
+.navi {
+    float: left;
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.navi li {
+    float: left;
+    text-indent: 42px;
+    margin-left: 20px;
+    padding: 7px;
+    text-decoration: none;
+}
+
+ol:hover {
+    border-bottom: 3px solid #00a1ff;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.avatar {
+    margin-top: 10px;
+    float: right;
+    margin-right: 290px;
+    height: 30px;
+}
+
+#phone {
+    line-height: 30px;
+    display: inline-block;
+    color: black;
+    text-align: center;
+}
+
+.search {
+    float: right;
+    margin-right: 30px;
+    ;
+}
+
+.searchbar {
+    float: left;
+    margin: 0;
+    width: 360px;
+    height: 40px;
+    border: 2px solid #00a4ff;
+}
+
+.searchbar :focus {
+    border: 2px solid #00a4ff;
+}
+
+.search_button {
+    float: left;
+    margin: 0;
+    display: inline-block;
+    width: 50px;
+    height: 44px;
+    border: 0px;
+    background-image: url(image/fa-search.png);
+}
+
+.bannerheight {
+    height: 420px;
+}
+
+.banner_outer {
+    background-color: #1b036c;
+}
+
+.banner {
+    text-align: center;
+    background-image: url(image/banner2.png);
+}
+
+.leftpart {
+    float: left;
+    width: 190px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navi ul {
+    padding: 20px;
+}
+
+.leftpart li {
+    margin-right: 20px;
+    color: white;
+    margin-left: 10px;
+    list-style-type: none;
+    height: 43px;
+    line-height: 43px;
+}
+
+.leftpart span {
+    float: right;
+}
+
+li:hover {
+    color: #01aef7;
+}
+
+.rightpart {
+    margin-top: 50px;
+    text-align: center;
+    float: right;
+    background-color: white;
+    width: 230px;
+    height: 300px;
+}
+
+.right_title {
+    height: 50px;
+    color: white;
+    background-color: #9bceeb;
+    font-size: 18px;
+    line-height: 50px;
+}
+
+.common_part {
+    height: 50px;
+    border-bottom: 1px solid #999999;
+    margin: 14px 20px;
+}
+
+.common_title {
+    text-align: start;
+    font-size: 16px;
+    color: #666666;
+}
+
+.common_sub_title {
+    text-align: start;
+    font-size: 12px;
+    color: #999999;
+}
+
+.noborder {
+    border: none;
+}
+
+.all_course {
+    margin: 0px 20px;
+    color: #00a3ff;
+    border: 1px solid #00a3ff;
+    padding: 7px 0;
+}
+
+.jp_bar {
+    margin-top: 10px;
+    height: 60px;
+    background-color: white;
+    /* Add box-shadow */
+    box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    text-align: left center;
+    line-height: 60px;
+}
+
+.jp_bar li {
+    display: inline-block;
+}
+
+.jp_bar a {
+    padding: 0 30px;
+    border-right: 1px solid #999999;
+}
+
+.jp_bar .last_one {
+    border: none;
+}
+
+.jp_bar .first_one {
+    font-weight: 700;
+    color: #00a4ff;
+}
+
+.jpbar_right {
+    margin-right: 30px;
+    float: right;
+    color: #00a4ff;
+}
+
+.course_container {
+    margin-top: 40px;
+    height: 600px;
+}
+
+.course_header {
+    height: 40px;
+    color: #494949;
+    font-size: 20px;
+}
+
+.course_list {
+    float: left;
+    height: 560px;
+}
+
+.course_list ul {
+    padding: 0;
+}
+
+.course_item {
+    margin: 0;
+    list-style-type: none;
+    float: left;
+    width: 227px;
+    height: 272px;
+    background-color: white;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+.course_list .course_last {
+    margin-right: 0;
+}
+
+.course_list .course_bottom {
+    margin-bottom: 0;
+}
+
+.course_image {
+    height: 156px;
+    background-image: url(image/img_course.png);
+    background-repeat: no-repeat;
+}
+
+.course_des {
+    padding: 26px 24px;
+}
+
+.course_title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.course_des_subtitle {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.course_des_subtitle span {
+    color: #ff7c2d;
+}
+
+.course_header_right {
+    color: #999999;
+    font-size: 14px;
+}
+
+.programer_abc {
+    margin-top: 40px;
+}
+
+.grogramer_header {
+    float: left;
+}
+
+.grogramer_category {
+    margin-left: 350px;
+    float: left;
+}
+
+.grogramer_category li {
+    margin-right: 70px;
+    font-size: 16px;
+    float: left;
+    list-style-type: none;
+}
+
+.programer_content {
+    height: 400px;
+}
+
+.programer_left_part {
+    float: left;
+    width: 230px;
+    height: 400px;
+    background-image: url(image/img_programer_left.png);
+    background-repeat: no-repeat;
+}
+
+.programer_right_part {
+    margin-left: 10px;
+    float: left;
+    height: 400px;
+    width: 960px;
+}
+
+.top_image {
+    margin: 0;
+    width: 960px;
+    height: 100px;
+    background-image: url(image/topbanner.png);
+}
+
+.program_bottom .course_item {
+    margin: 0;
+    list-style-type: none;
+    float: left;
+    width: 227px;
+    height: 272px;
+    background-color: white;
+    margin-right: 17px;
+    margin-top: 25px;
+}
+
+.program_bottom .course_last {
+    margin: 0;
+    list-style-type: none;
+    float: left;
+    width: 227px;
+    height: 272px;
+    background-color: white;
+    margin-right: 0px;
+    margin-top: 25px;
+}
+
+.footer {
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background-color: white;
+}
+
+.footer_left {
+    width: 430px;
+    float: left;
+}
+
+.footer_left .logo1 {
+    background-image: url(image/icon_logo.png);
+    width: 195px;
+    height: 42px;
+}
+
+.footer_des {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.download_app {
+    margin-top: 20px;
+    text-align: center;
+    width: 100px;
+    padding: 10px 30px;
+    border: 1px solid #00a4ff;
+    color: #00a4ff;
+    font-size: 16px;
+}
+
+.footer_right {
+    float: right;
+}
+
+.right_item {
+    float: right;
+    margin-right: 40px;
+}
+
+.right_item li {
+    list-style-type: none;
+    font-size: 12px;
+}
+
+.right_item ul {
+    margin-top: 5px;
+}

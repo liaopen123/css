@@ -8,29 +8,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .container {
+            overflow: hidden;
             width: 100%;
             background-color: yellow;
+            border: 1px solid black;
         }
 
         .son1 {
+            float: left;
             width: 200px;
             height: 200px;
             background-color: green;
         }
 
         .son2 {
+            float: left;
             width: 400px;
             height: 400px;
             background-color: skyblue;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
         }
     </style>
 </head>
 
 <body>
-
+    <!-- 清除漂浮方法3 -->
+    <!-- <div class="container clearfix"> -->
     <div class="container">
+        <!-- 清除漂浮方法2 -->
         <div class="son1"></div>
         <div class="son2"></div>
+        <!-- <div class="clear"></div>  清除漂浮方法1 -->
     </div>
 </body>
 
