@@ -245,6 +245,7 @@ li:hover {
 }
 
 .course_item {
+    position: relative;
     margin: 0;
     list-style-type: none;
     float: left;
@@ -410,4 +411,13 @@ li:hover {
 
 .right_item ul {
     margin-top: 5px;
+}
+
+.icon_lable {
+    width: 40px;
+    height: 21px;
+    background-image: url(image/icon_new.png);
+    position: absolute;
+    right: 0px;
+    top: 10px;
 }
