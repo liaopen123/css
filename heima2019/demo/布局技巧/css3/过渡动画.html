@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            transition: all 1s;
+        }
+
+        .container:hover {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .progressbar {
+            width: 100px;
+            height: 5px;
+            transition: all 1s;
+            background-color: red;
+            border-radius: 2.5px;
+        }
+
+        .progressbar_inner {
+            width: 10px;
+            height: 5px;
+            transition: width 1s;
+            border: 1px solid transparent;
+            border-radius: 2.5px;
+            background-color: red;
+        }
+
+        .progressbar_inner:hover {
+            width: 100%;
+        }
+
+
+        .mi {
+            width: 120px;
+            height: 55px;
+            background-color: #ff6700;
+        }
+
+
+        .mi img {
+            width: 55px;
+            height: 55px;
+        }
+
+        .mi img:first-child {
+            margin-left: 0px;
+            transition: all 1s;
+        }
+
+        img {
+            float: left;
+        }
+
+        .mi:hover .first {
+            margin-left: -55px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+    </div>
+
+    <div class="progressbar">
+        <div class="progressbar_inner">
+
+        </div>
+    </div>
+
+    <div class="mi">
+        <img class="first" src="https://s02.mifile.cn/assets/static/image/mi-home.png" alt="">
+        <img src="https://s02.mifile.cn/assets/static/image/mi-logo.png" alt="">
+    </div>
+
+</body>
+
+</html>
