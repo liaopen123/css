@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink {
+            background: blue;
+            width: 200px;
+            height: 200px;
+        }
+
+        .big {
+            background: yellow;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pink">点击就变色</div>
+    <div id="div1">修改多个样式</div>
+
+    <script>
+        var element = document.querySelector('.pink');
+        element.onclick = function () {
+            this.style.backgroundColor = 'pink';
+        };
+        document.getElementById('div1').onclick = function () {
+            document.getElementById('div1').className = 'big';
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h2>innnerText和interHtml的区别:</h2>
+    <p class="p1">今天天气好晴朗</p>
+    <p class="p2">今天天气好晴朗</p>
+
+    <h2>修改图片的src属性:</h2>
+    <button id="btn_change_src">切换图片</button>
+    <img id="avatar" src="../images/ldh.jpg" alt="" style="width: 300px; height: 200px;">
+    <script>
+        document.querySelector('.p1').innerText = "<strong>今天天气</strong>好晴朗";
+        document.querySelector('.p2').innerHTML = "<strong>今天天气</strong>好晴朗";
+
+        var btn = document.getElementById("btn_change_src");
+        btn.onclick = function () {
+            var avatar = document.getElementById("avatar");
+            avatar.src = "../images/zxy.jpg";
+        }
+    </script>
+</body>
+
+</html>
