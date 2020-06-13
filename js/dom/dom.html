@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="dom.js"></script>
+</head>
+<body>
+    <h1>点击文字即可获取对于的元素</h1>
+    <p id="ele1" onclick="getEleById('ele1')">根据id获取元素</p>
+    <ul>
+        <li onclick="getElementsbyTag('li')">通过tag标签获取元素集合</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <h3>查找指定元素内的id</h3>
+    <ul id="nav" >
+        <li  onclick="findElementsInEle('nav','li')">小花生</li>
+        <li>小花生</li>
+        <li>小花生</li>
+    </ul>
+    <h3>通过类名获得元素(html5新增  ie9以上才支持)</h3>
+  <!-- <div class="box"  onclick="getEleByClassName('box')">盒子</div>
+  <p class="box"  onclick="querySelectorT('.box')">盒子</p> -->
+  <p class="box"  onclick="querySelectorAll('.box')">盒子</p>
+</body>
+</html>
