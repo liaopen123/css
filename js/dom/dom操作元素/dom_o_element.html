@@ -5,7 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <style>
+        .header{
+            background: #efefef;
+            height: 100px;
+        }
+       ul li{
+           float: left;
+           line-height: 100px;
+           padding: 0px 10px;
+           list-style: none;
+       }
+       .selected{
+           color: white;
+           background: red;
+       }
+       .unselected{
+           color: #666666;
+           background: transparent;
+       }
+    </style>
 </head>
 
 <body>
@@ -14,8 +33,30 @@
     <p class="p2">今天天气好晴朗</p>
 
     <h2>修改图片的src属性:</h2>
-    <button id="btn_change_src">切换图片</button>
+    <button id="btn_change_src">切换图片(修改属性方式1)</button>
+    <button id="btn_change_src1">切换图片(修改属性方式2)</button>
     <img id="avatar" src="../images/ldh.jpg" alt="" style="width: 300px; height: 200px;">
+
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价(5000)</li>
+            <li>手机社区</li>
+        </ul>
+    </div>
+    <div class="content">
+        <div>我是内容1</div>
+        <div>我是内容2</div>
+        <div>我是内容3</div>
+        <div>我是内容4</div>
+        <div>我是内容5</div>
+    </div>
+
+    <p class="pp"data-index="233">所以的自定义属性都已data开头</p>
+</div>
     <script>
         document.querySelector('.p1').innerText = "<strong>今天天气</strong>好晴朗";
         document.querySelector('.p2').innerHTML = "<strong>今天天气</strong>好晴朗";
@@ -25,6 +66,46 @@
             var avatar = document.getElementById("avatar");
             avatar.src = "../images/zxy.jpg";
         }
+        var btn1 = document.getElementById("btn_change_src1");
+        btn1.onclick=function(){
+            var avatar = document.getElementById("avatar");
+            avatar.setAttribute('src',"../images/zxy.jpg");
+        };
+
+
+       
+h5新增获取自定义属性的方法:
+var index = document.querySelector('.pp').dataset.index;
+var index23 = document.querySelector('.pp').dataset['index'];
+console.log(index,index23);
+
+
+
+        function initTabState(){
+           var lis =  document.getElementsByTagName("li");
+           var content = document.querySelector('.content');
+           var contents =  content.getElementsByTagName('div');
+           console.log(contents);
+           
+           console.log(lis);
+           for(var i=0;i<lis.length;i++){
+            lis[i].setAttribute('index',i);
+               lis[i].onclick= function(){
+            
+            for(var j=0;j<lis.length;j++){
+                    lis[j].className = "";
+                    contents[j].style.display = 'none';
+            }
+            this.className= "selected";
+           var index  = this.getAttribute('index');
+            contents[index].style.display = 'block';
+
+        };
+
+           }
+        };
+
+        initTabState();
     </script>
 </body>
 

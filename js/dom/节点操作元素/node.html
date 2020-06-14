@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        
+
+        }
+        .header{
+            height: 80px;
+            text-align: center;
+        }
+        .header ul li { 
+            list-style: none;
+            float: left;
+            line-height: 80px;
+      
+
+        }
+        li{
+            color: #666666;
+            width: 100px;
+            height: 80px;
+        }
+
+        .content ul li {
+            border:  1px solid;
+            text-align: center;
+            list-style: none;
+            line-height: 80px;
+            display: ;
+        }
+        .content ul{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+      <div class="header">
+        <ul class="tabs">
+            <li><a href="#">微博</a></li>
+            <li><a href="#">微博</a></li>
+            <li><a href="#">微博</a></li>
+            <li><a href="#">微博</a></li>
+        </ul>
+
+
+      </div>
+      <div class="content">
+          <ul>
+              <li>私信</li>
+              <li>评论</li>
+              <li>@我</li>
+          </ul>
+          <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>   <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+      </div>
+  </div>
+
+  <script>
+     var tab =  document.querySelector('.tabs');
+   var tabs=   tab.children;
+   var list = document.querySelector('.content');
+   var lists =  list.children;
+
+   console.log(tabs);
+   for(var i=0;i<tabs.length;i++){
+        tabs[i].setAttribute('data-index',i);
+        tabs[i].onclick=function(){
+            for(var j=0;j<lists.length;j++){
+                lists[j].style.visibility='hidden';
+            }
+     
+            
+            var index = this.getAttribute('data-index');
+            console.log(index);
+            lists[index].style.visibility='visible';
+        }
+   }
+   
+  </script>
+</body>
+</html>
