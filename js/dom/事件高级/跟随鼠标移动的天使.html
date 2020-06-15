@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/angle.gif" alt="#">
+
+    <script>
+        var iamge = document.querySelector('img');
+        document.addEventListener('mousemove',function(e){
+            console.log(e.pageX);
+            
+            iamge.style.left=e.pageX+'px';
+            iamge.style.top=e.pageY+'px';
+        });
+    </script>
+</body>
+</html>

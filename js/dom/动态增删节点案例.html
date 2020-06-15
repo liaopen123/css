@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse; 
+            text-align: center;
+        }
+        header{
+      
+            background: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <button class="add">添加</button>
+    <table class="table" border="1px">
+        <tr>
+        <td class="header">姓名</td>
+        <td class="header">科目</td>
+        <td class="header">成绩</td>
+        <td class="header">操作</td>
+        </tr>
+      
+        </table>
+
+
+        <script>
+            var index=0;
+        var add = document.querySelector(".add");
+        var table = document.querySelector(".table");
+        add.onclick=function(){
+         var tr =    document.createElement('tr');
+         var name  = document.createElement('td');
+         var kemu  = document.createElement('td');
+         var score  = document.createElement('td');
+         var operate  = document.createElement('td');
+         var a  = document.createElement('a');
+         a.href="#";
+         a.innerHTML="删除";
+         a.onclick=function(){
+         a.parentNode.parentNode.parentNode.removeChild(a.parentNode.parentNode);
+         };
+         name.innerHTML="魏璎珞"+index;
+         kemu.innerHTML="JavaScript"+index;
+         score.innerHTML=80+index;
+         operate.appendChild(a);
+         tr.appendChild(name);
+         tr.appendChild(kemu);
+         tr.appendChild(score);
+         tr.appendChild(operate);
+         table.appendChild(tr);
+         index++;
+        };
+
+        </script>
+</body>
+</html>
+
+能够写出元素注册事件的两种方式 
+能够说出删除事件的两种方式
+能够说出DOM事件流的三个阶段 
+能够利用事件对象完成跟随鼠标案例
+能够封装阻止冒泡的兼容性函数 
+能够说出事件委托的原理
+能够说出常用的鼠标和键盘事件

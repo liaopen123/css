@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big{
+            margin-top: 50px;
+            width: 400px;;
+            height: 400px;
+            background: green;
+        }
+        .small{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="buhuofather big">
+        <div class="buhuoson small">
+            捕获事件流传递的顺序
+        </div>
+    </div>
+        <div class="maopaofather big">
+        <div class="maopaoson small">
+            冒泡事件流传递的顺序
+        </div>
+    </div>
+
+    <script>
+        function fatherClick(){
+            alert('father click');
+        }    
+         function sonClick(){
+            alert('son click');
+        }
+        var buhuo_father = document.querySelector('.buhuofather');
+        var maopao_fahter = document.querySelector('.maopaofather');
+        var buhuo_son = document.querySelector('.buhuoson');
+        var maopao_son = document.querySelector('.maopaoson');
+        //捕获
+        buhuo_father.addEventListener('click',fatherClick,true);
+        buhuo_son.addEventListener('click',sonClick,true);
+        //冒泡
+        maopao_fahter.addEventListener('click',fatherClick);
+        maopao_son.addEventListener('click',sonClick);
+    </script>
+</body>
+</html>

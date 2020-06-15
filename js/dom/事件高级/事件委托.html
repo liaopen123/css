@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>设置一次点击 每个li都能响应1</li>
+        <li>设置一次点击 每个li都能响应2</li>
+        <li>设置一次点击 每个li都能响应3</li>
+        <li>设置一次点击 每个li都能响应4</li>
+        <li>设置一次点击 每个li都能响应5</li>
+    </ul>
+
+    fadsfasdfasdf
+    <script>
+            //禁止鼠标右键
+      document.addEventListener('contextmenu',function(e){
+          e.preventDefault();
+      });
+              //禁止鼠标选中
+      document.addEventListener('selectstart',function(e){
+          e.preventDefault();
+      });
+      
+      var ul =   document.querySelector('ul');
+      function clickItem(e){
+          console.log( e.target);
+          e.target.style.backgroundColor='pink';
+      }
+      ul.addEventListener('click',clickItem)
+
+
+  
+    </script>
+</body>
+</html>
