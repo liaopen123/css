@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin-left: 150px;
+        margin-top: 100px;
+    }
+
+    .dragbox {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        margin-left: 150px;
+        margin-top: 100px;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var box = document.querySelector('.box');
+        box.addEventListener('mousemove', function (e) {
+            console.log(e.pageX, e.pageY, box.offsetTop, box.offsetLeft);
+            var boxX = e.pageX - box.offsetLeft;
+            var boxY = e.pageY - box.offsetTop;
+            box.innerHTML = "鼠标在盒子里的位置距离是:" + boxX + ".." + boxY;
+        });
+
+        //盒子拖拽事件
+        var box1 = document.querySelector('.dragbox');
+        var mouseStartX;
+        var mouseStartY;
+        var isClick = false;
+        box1.addEventListener('click', function (e) {
+
+
+        });
+
+        box1.addEventListener('mousedown', function (e) {
+
+            isClick = true;
+            mouseStartX = e.pageX - box.offsetLeft;
+            mouseStartY = e.pageY - box.offsetTop;
+            console.log("mousedown", mouseStartX, mouseStartY);
+
+            box1.addEventListener('mousemove', function (e) {
+                if (isClick) {
+                    var offsetLeft = e.pageX - mouseStartX;
+                    var offsetTop = e.pageY - mouseStartY;
+                    this.style.marginLeft = offsetLeft + 'px';
+                    this.style.marginTop = offsetTop + 'px';
+                    console.log("mousemove", offsetLeft, offsetTop);
+                }
+            });
+
+
+
+        });
+    }
+</script>
+
+<body>
+    <div class="box">
+
+    </div>
+
+    <div class="dragbox">
+        可以拖拽的盒子
+    </div>
+
+</body>
+
+</html>
