@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        span {
+            display: block;
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+    <span></span>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        function horizontalMove(target, offset) {
+            clearInterval(target.animal);//进来先清除原来的定时器，保证永远只执行一个。
+            target.animal = setInterval(function () {
+                if (target.offsetLeft >= offset) {
+                    clearInterval(target.animal);
+                }
+                target.style.left = target.offsetLeft + 3 + 'px';
+
+            }, 30);
+        };
+        horizontalMove(div, 400);
+        horizontalMove(span, 500);
+    </script>
+</body>
+
+</html>

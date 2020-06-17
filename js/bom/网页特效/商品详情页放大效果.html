@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imag_frame {
+            float: left;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #999999;
+        }
+
+        img {
+            width: 400px;
+            height: 400px;
+        }
+
+        .yellow_frame {
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 250px;
+            height: 250px;
+            background-color: yellow;
+            opacity: 0.5;
+        }
+
+        .bigFrame {
+            display: none;
+            overflow: hidden;
+            float: left;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #999999;
+        }
+
+        .bigImage {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var imag_frame = document.querySelector('.imag_frame');
+            var yellow_frame = document.querySelector('.yellow_frame');
+            var bigFrame = document.querySelector('.bigFrame');
+            var bigImage = document.querySelector('.bigImage');//大图的移动
+            imag_frame.addEventListener('mousemove', function (e) {
+                yellow_frame.style.display = 'block';
+                bigFrame.style.display = 'block';
+                //边框判断:
+                var leftX;
+                var topY;
+                //水平边间的判断
+                if (e.pageX - 8 - 125 < 0) {
+                    leftX = 0;
+                } else if (e.pageX - 8 - 125 > 150) {
+                    leftX = 150;
+                } else {
+                    leftX = e.pageX - 8 - 125;
+                }
+                //垂直边界的判断
+                if (e.pageY - 8 - 125 < 0) {
+                    topY = 0;
+                } else if (e.pageY - 8 - 125 > 150) {
+                    topY = 150;
+                } else {
+                    topY = e.pageY - 8 - 125;
+                }
+
+
+                yellow_frame.style.left = leftX + 'px';
+                yellow_frame.style.top = topY + 'px';
+
+                //根据yellow_frame的位置确定出图片的移动效果
+
+                bigImage.style.left = -(leftX * 2) + 'px';
+                bigImage.style.top = -(topY * 2) + 'px';
+            });
+            imag_frame.addEventListener('mouseout', function (e) {
+                yellow_frame.style.display = 'none';
+                bigFrame.style.display = 'none';
+            });
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="imag_frame">
+        <img src="../../images/iphone.jpg" alt="#">
+        <div class="yellow_frame"></div>
+    </div>
+    <div class="bigFrame">
+        <img src="../../images/iphone.jpg" class="bigImage" alt="#">
+    </div>
+
+
+</body>
+
+</html>
