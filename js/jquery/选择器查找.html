@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>我是div</div>
+    <div class="nav">我是nav div</div>
+    <p>我是p</p>
+    <ol>
+        <li>我是ol</li>
+        <li>我是ol</li>
+        <li>我是ol</li>
+        <li>我是ol</li>
+        <li>我是ol</li>
+    </ol>
+    <ul>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+    </ul>
+
+    <a href="#">跳转</a>
+    <p class="p" data-index="tt">活动自定义标签</p>
+
+    <script>
+        $(function () {
+            // $('div').text = "玩尬的";
+            $('a').prop('href', "http://www.baidu.com")
+            var index = $('.p').attr('data-index');
+            console.log('index:', index);
+            $('.p').attr('data-index', 'eqqqq');
+            var index = $('.p').attr('data-index');
+            console.log('index:', index);
+
+
+        });
+    </script>
+</body>
+
+</html>
