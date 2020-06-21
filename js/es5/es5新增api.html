@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 第一大块数组:
+        var array = ['day1', 'day2', 'day3', 'day4', 'day5'];
+        /**
+         * value 当前值
+         * index 角标
+         * array 数组本身
+         * */
+        array.forEach(function (value, index, array) {
+            console.log(value, index, array);
+        });
+
+        function add(value) {
+            return value + '233';
+        }
+
+        var newArray = array.map(add);
+        console.log(newArray);
+
+        var newArray2 = array.filter(function (value, index) {
+            return index % 2 == 0;
+        });
+        console.log(newArray2);
+
+        var isContains = array.some(function (value, index) {
+            return value.indexOf('8') != -1;
+        });
+        console.log(isContains);
+
+        var isAllRight = array.every(function (value, index) {
+            return value.indexOf('d') != -1;
+        });
+        console.log(isAllRight);
+
+
+        //第二大块  对象的方法
+        var obj = {
+            name: 'lph',
+            age: 23,
+            sayHello: function () {
+                console.log('hello');
+
+            }
+        };
+
+        console.log(Object.keys(obj)); //返回[name, age, sayHello];
+        //添加或者修改属性:
+        Object.defineProperty(obj, 'num', { value: 1000, });
+        Object.defineProperty(obj, 'id', { value: 1000, writable: false });//是否允许重写,默认是false
+
+    </script>
+</body>
+
+</html>

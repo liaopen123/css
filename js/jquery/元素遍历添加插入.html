@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <p>我是1</p>
+    <p>我是2</p>
+    <p>我是3</p>
+    <p>我是4</p>
+    <p>我是5</p>
+
+    <div class="container">
+
+    </div>
+    <script>
+        $(function () {
+            console.log('加载成功');
+
+            //遍历元素的方式1
+            $('p').each(function (index, domElm) {
+                //这里面返回的是dom 对象 不是jquery对象
+                console.log(domElm.innerHTML);
+            });
+            //遍历元素方式2
+            $.each($('p'), function (index, domEle) {
+                domEle.innerHTML = "全部都变";
+            });
+
+
+            //创建元素:
+            var li = $('<li>我就是小丽</li>');
+            var li1 = $('<li>我就是小丽放在前面</li>');
+            var li2 = $('<li>我就是小丽放在外面的前面</li>');
+            var li3 = $('<li>我就是小丽放在外面的后面</li>');
+            //内部添加
+            $('.container').append(li);
+            $('.container').prepend(li1);
+            $('.container').before(li2);
+            $('.container').after(li3);
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

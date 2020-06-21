@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //定义类
+        class Star {
+            constructor(name) {
+                this.name = name;
+            }
+
+            say(song) {
+                console.log('我会唱歌:' + song);
+
+            }
+        }
+        //创建对象
+        var ldh = new Star('ldh');
+        console.log(ldh.name);
+
+        //类的继承：
+        class Father {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            say() {
+                console.log('changge');
+
+            }
+            sum() {
+                console.log(x + y);
+
+            }
+        }
+
+        class Son extends Father {
+            constructor(x, y) {
+                super(x, y);//永远在最前面
+            }
+
+            say() {
+                super.say();
+            }
+        }
+
+        //1. es6没有变量提升   所以必须现有类  才能实例化
+         //2. 类里面的共有属性和类里面的方法调用的时候一定要加this
+
+    </script>
+
+</body>
+
+</html>

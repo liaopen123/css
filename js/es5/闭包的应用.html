@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>萝卜</li>
+        <li>白菜</li>
+        <li>西瓜</li>
+        <li>西蓝花</li>
+    </ul>
+</body>
+
+<script>
+    // 要求:打印出li的index值
+    // 错误写法:
+    var lis = document.querySelector('ul').querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].click = function () {
+            console.log(i);
+
+        };
+    }
+
+
+</script>
+
+</html>

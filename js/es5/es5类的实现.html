@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // var obj1 = new Object();
+        // var obj2 = {};
+        // function Star(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sing = function () {
+        //         log('会唱歌');
+        //     }
+        // }
+
+        // function Start(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        //     Start.prototype = {
+        //         sing: function () {
+        //             console.log('sing');
+        //         },
+        //         movie: function () {
+        //             console.log('movie');
+        //         }
+        //     }
+        // }
+        // var ldh = new Star('ldh', 18);
+        // console.log(ldh.__proto__);
+        // console.log(Star.prototype);
+
+        // //call方法:
+        // function fn(name, age) {
+        //     console.log(this.name);
+        //     console.log(name, age);
+        // }
+        // var o = {
+        //     name: '廖鹏辉',
+        // }
+        // fn.call();
+        // fn.call(o, 'lph', 18);
+
+
+
+        function Father(name, age) {
+            this.name = name;
+            this.age = age;
+
+            Father.prototype.sing = function () {
+                console.log('sing');
+            }
+        };
+
+
+        function Son(name, age) {
+            Father.call(this, name, age);  //这种智能继承属性 不能继承方法
+            Son.prototype = new Father(); //这种能继承方法
+            Son.prototype.exam = function () {
+                console.log('exam');//子类单独的方法 父类也不会有
+
+            }
+        };
+        var son1 = new Son('lph', 24);
+        // son1.sing();
+        console.log(son1);
+
+    </script>
+
+</body>
+
+</html>

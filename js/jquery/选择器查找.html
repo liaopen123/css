@@ -29,7 +29,7 @@
 
     <a href="#">跳转</a>
     <p class="p" data-index="tt">活动自定义标签</p>
-
+    <input type="text" value="233333">
     <script>
         $(function () {
             // $('div').text = "玩尬的";
@@ -40,7 +40,15 @@
             var index = $('.p').attr('data-index');
             console.log('index:', index);
 
-
+            // 元素上的属性存储:
+            $('p').data('key', 'value233');
+            var data = $('p').data('key');
+            console.log(data);
+            var data1 = $('.p').data('index');
+            console.log(data1);
+            $('p').html('我就是我不一样的烟火');
+            var content = $('p').html();
+            $('input').val('我已经改变');
         });
     </script>
 </body>

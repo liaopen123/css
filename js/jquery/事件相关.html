@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .div2 {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+    <script>
+        $(function () {
+            $('.div1').click(function (e) {
+                alert('clicked');
+            });
+            //通过对象的方式去装多个事件
+            $('.div2').on({
+                click: function (e) {
+                    $('.div2').css('background-color', 'black');
+                },
+                mouseenter: function (e) {
+                    $('.div2').css('background-color', 'yellow');
+                },
+            });
+
+
+            $('.div2').on('click mouseenter', function (e) {
+                alert('两个事情触发了同一个事件');
+            });
+
+        });
+    </script>
+</body>
+
+</html>

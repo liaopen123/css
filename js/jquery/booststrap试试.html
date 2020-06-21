@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <style>
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+
+        .clearfix {
+            *zoom: 1
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            /* css3的盒子模型 */
+            box-sizing: border-box;
+        }
+
+        .w {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .center {
+            height: 50px;
+        }
+
+        .header {
+            height: 50px;
+            background-color: #363935;
+            width: 100%;
+        }
+
+        body {
+            background-color: #d2d4d1;
+        }
+
+        #title {
+            float: left;
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            line-height: 50px;
+        }
+
+        .form-control {
+            margin-top: 12px;
+            border-radius: 5px;
+            float: right;
+            width: 60%;
+            line-height: 50px;
+        }
+
+
+        .ing_count {
+            float: right;
+            font-size: 10px;
+            border-radius: 10px;
+            background-color: #e6e9fa;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .line_ing,
+        .line_finished {
+            padding-top: 20px;
+        }
+
+        .line_ing h4,
+        .line_finished h4 {
+
+            display: inline-block;
+        }
+
+        .todo {
+            border-radius: 5px;
+            width: 100%;
+            height: 30px;
+            background-color: white;
+            margin-top: 10px;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        .finish {
+            background-color: #e6e6e6;
+        }
+
+
+
+        .left_color_block {
+            float: left;
+            width: 10px;
+            height: 100%;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            background-color: #72a3a4;
+        }
+
+        #checkbox {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            line-height: 30px;
+            float: left;
+            border-width: 2px;
+        }
+
+        #text_content {
+            margin-left: 10px;
+            line-height: 30px;
+        }
+
+        .badge {
+            float: right;
+        }
+
+        a {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 2px;
+            right: 5px;
+            display: inline-block;
+            line-height: 14px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .todo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header clearfix">
+        <div class="center w">
+            <h2 id="title">ToDoList</h2>
+            <input type="text" class="form-control" placeholder="添加Todo" aria-describedby="basic-addon1">
+        </div>
+    </header>
+    <div class="content w">
+        <div class="line_ing">
+            <h4>正在进行</h4>
+            <span class="badge ing_bage">3</span>
+        </div>
+        <ul id="todoing">
+
+        </ul>
+
+        <div class="line_finished">
+            <h4>已经完成</h4>
+            <span class="badge ed_bage">3</span>
+        </div>
+        <ul id="finished">
+
+        </ul>
+    </div>
+
+    <script>
+        $(function () {
+            var notFinishArray = [];
+            var finishedArray = [];
+            function initData() {
+                var notData = localStorage.getItem('notFinishArray')
+                if (notData != null) {
+                    notFinishArray = JSON.parse(localStorage.getItem('notFinishArray'));
+                } else {
+                    notFinishArray = [];
+                }
+                if (localStorage.getItem('finishedArray') != null) {
+                    finishedArray = JSON.parse(localStorage.getItem('finishedArray'));
+                } else {
+                    finishedArray = [];
+                }
+            };
+            function fillData() {
+                $('#todoing').empty();
+                $('#finished').empty();
+                $('.ing_bage').html(notFinishArray.length);
+                $('.ed_bage').html(finishedArray.length);
+                notFinishArray.forEach((element, index) => {
+
+                    var li = $('<li><div class="todo "><div class="left_color_block"></div><input id="checkbox"  type="checkbox" aria-label="..."><span id="text_content">' + element + '</span><a href="#"><img src="images/del_tips.png" alt=""></a></div></li>');
+                    var checkbox = li[0].querySelector('#checkbox');
+                    var a = li[0].querySelector('a');
+                    a.setAttribute('data-index', index);
+                    a.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        notFinishArray.splice(this.getAttribute('data-index'), 1);
+                        saveCurrentData();
+                        initData();//刷新数据
+                        fillData();
+                    });
+                    checkbox.setAttribute('data-index', index);
+                    checkbox.addEventListener('click', function (e) {
+                        alert(this.getAttribute('data-index'));
+                        //把未完成的改成已完成
+                        changFinishTask(this.getAttribute('data-index'));
+                        saveCurrentData();
+                        initData();//刷新数据
+                        fillData();
+                    });
+                    $('#todoing').append(li);
+                });
+
+                finishedArray.forEach((element, index) => {
+
+                    var li = $('<li><div class="todo finish"><div class="left_color_block"></div><input id="checkbox" checked="checked"  disabled="true"  checked="checked" type="checkbox" aria-label="..."><span id="text_content">' + element + '</span><a href="#"><img src="images/del_tips.png" alt=""></a></div></li>');
+                    var a = li[0].querySelector('a');
+                    a.setAttribute('data-index', index);
+                    a.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        delCurrentTodo(finishedArray, this.getAttribute('data-index'))
+                        finishedArray.splice(this.getAttribute('data-index'), 1);
+                        saveCurrentData();
+                        initData();//刷新数据
+                        fillData();
+                    });
+
+                    var checkbox = li[0].querySelector('#checkbox');
+                    checkbox.setAttribute('data-index', index);
+                    $('#finished').append(li);
+                });
+            };
+
+            function changFinishTask(index) {
+                var content = notFinishArray[index];
+                notFinishArray.splice(index, 1);
+                finishedArray.push(content);
+            };
+            function saveCurrentData() {
+                localStorage.setItem('notFinishArray', JSON.stringify(notFinishArray));
+                localStorage.setItem('finishedArray', JSON.stringify(finishedArray));
+
+            }
+
+            $('.form-control').keydown(function (e) {
+                console.log(this.value);
+                (this.text);
+                if (e.keyCode == 13) {
+                    if (this.value == '') {
+                        alert('请输入内容');
+                    } else {
+                        //清空文字
+                        enterIn(this.value);
+                        this.value = "";
+                    }
+
+                }
+            });
+
+
+            function enterIn(value) {
+                notFinishArray.push(value);
+                saveCurrentData();
+                initData();//刷新数据
+                fillData();
+            }
+
+
+            //先初始化数据
+            initData();
+            fillData();
+        });
+    </script>
+
+</body>
+
+</html>

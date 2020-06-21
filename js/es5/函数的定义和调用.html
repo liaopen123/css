@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        'use strict'
+        //1.
+        function fn() {
+            //todo
+        }
+        //2.匿名函数
+        var fn1 = function () {
+            //todo
+        }
+        //3.利用new  Function(arg1,arg2,);
+        var fn2 = new Function('a', 'b', 'console.log("123",a+b)');
+        fn2(1, 2);
+
+
+        //闭包的定义:
+        function fn() {
+            var num = 10;
+            function fn2() {
+                console.log(num);
+            };
+            fn2();
+        }
+        fn();
+
+        //闭包的使用：
+        function fn233() {
+            var num = 10;
+            function fn333() {
+                console.log(num);
+            };
+            return fn333;
+        }
+        var newFn = fn233();
+        newFn();
+    </script>
+</body>
+
+</html>
