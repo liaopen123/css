@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // let特性:
+        for (let i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        console.log(i); //报错
+
+        // 面试题
+        var arr = [];
+        for (var i = 0; i < 2; i++) {
+            arr[i] = function () {
+                console.log(i);
+
+            }
+        }
+        arr[0]();
+        arr[1]();
+
+        let arr1 = [];
+        for (let i = 0; i < 2; i++) {
+            arr1[i] = function () {
+                console.log(i);
+
+            }
+        }
+        arr1[0]();
+        arr1[1]();
+        //内存地址不能改变  就意味着基本数据类型 不能改 对象或者数组里面的值是可以改的
+        const PI = 3.1415;
+        const array = [1, 2, 3];
+        array[0] = 5;
+
+
+    </script>
+</body>
+
+</html>

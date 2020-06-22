@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //Array.from 将伪数组转成真正的数组
+        let likeArray = {
+            '0': 'a',
+            '1': 'b',
+            '2': 'c',
+            length: 3
+        };
+        let array2 = Array.from(likeArray);
+        console.log(array2);
+
+        var people = [
+            {
+                name: 'lph',
+                age: 23,
+
+            },
+            {
+                name: 'jerry',
+                age: 18,
+
+            },
+            {
+                name: 'xiaolaotou',
+                age: 88,
+
+            },
+        ];
+
+        var man = people.find(item => item.age = 23);
+        var index18 = people.findIndex(item => item.age == 18);
+        console.log(man);
+        console.log(index18);
+
+
+
+    </script>
+</body>
+
+</html>
