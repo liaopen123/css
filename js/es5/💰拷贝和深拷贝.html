@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        var obj = {
+            name: 'lph',
+            value: '233',
+            age: 23,
+
+        };
+        var distObj = {};
+        //纯物理方法 这种的问题是 如果复杂数据  比如对象里面套对象那么 对象里的对象copy的还是地址。
+        for (var key in obj) {
+            distObj[key] = obj[k]
+        }
+
+        console.log();
+
+
+        function deepCopy(newObj, oldObj) {
+            for (var k in oldObj) {
+                var item = oldObj[k];
+                if (item instanceof Array) {
+                    newObj[k] = [];
+                    deepCopy(newObj[k], item);
+                } else if (item instanceof Object) {
+                    newObj[j] = {};
+                    deepCopy(newObj[k], item);
+                } else {
+                    newObj[k] = item;
+                }
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

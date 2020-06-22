@@ -20,13 +20,50 @@
     // 要求:打印出li的index值
     // 错误写法:
     var lis = document.querySelector('ul').querySelectorAll('li');
+    // for (var i = 0; i < lis.length; i++) {
+    //     lis[i].onclick = function () {
+    //         console.log(i);  //这样输出全是4  因为onclick是点击的时候才执行，i是for循环里面的i，所以导致最后i==4，打印出来的全是4
+    //     };
+    // }
+    //一般写法
+    // for (var i = 0; i < lis.length; i++) {
+    //     lis[i].index = i;
+    //     lis[i].onclick = function () {
+    //         console.log(this.index);
+    //     };
+    // };
+
+    //闭包写法:
     for (var i = 0; i < lis.length; i++) {
-        lis[i].click = function () {
-            console.log(i);
+        (function (index) {
+            lis[i].onclick = function () {
+                console.log(index);
+            };
+        })(i);
+    };
 
+
+    //北京出租车 3公里13元，高于3公里，每公里5元。堵车的话 另收10元堵车费。
+    var car = (function () {
+        var startPrice = 13;
+        var total = 0;
+        return {
+            pirce: function (n) {
+                if (n <= 3) {
+                    total = startPrice;
+                } else {
+                    total = startPrice + (n - 3) * 5;
+                }
+                return total;
+            },
+
+            yd: function (flag) {
+                return flag ? total + 10 : total;
+            },
         };
-    }
-
+    })();
+    console.log(car.pirce(10));
+    console.log(car.yd(true));
 
 </script>
 
