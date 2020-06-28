@@ -64,4 +64,20 @@ Cat.create({ name: 'chujiu' }).then(doc => {
 
 
 
+//多表关联
+//1.用户集合
+const User = mongoose.model('User', new mongoose.Schema({ name: { type: String } }));
+//文章集合
+const Post = mongoose.model('Post', new mongoose.Schema({
+    title: { Type: String },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',  //关联用户的id，类型是ObjectId
+    }
+}));
+//联合查询
+Post.find().populate('author').then((err, result) => {
+    console.log(result);
+
+});
 

@@ -1,0 +1,4 @@
+<div>
+    <span>{{data.name}}</span>
+    <span>{{data.age}}</span>
+</div>
