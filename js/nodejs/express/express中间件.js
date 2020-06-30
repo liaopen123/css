@@ -8,4 +8,4 @@ app.get('/test', (req, res, next) => {
     res.send('eee');
 });
 app.listen(8080);
-console.log('服务器已经启动了！！');
+console.log('服务器已经启动了！！修改邮箱');
