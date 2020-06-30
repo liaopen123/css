@@ -1,0 +1,4 @@
+<div>
+    <span>{{users[0].name}}</span>
+    <span>{{users[1].name}}</span>
+</div>
