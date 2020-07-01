@@ -6,5 +6,11 @@ admin.get('', (req, res) => {
 admin.get('/login', (req, res) => {
     res.render('./admin/login');
 });
+admin.get('/user', (req, res) => {
+    res.render('./admin/user');
+});
+admin.get('/user-edit', (req, res) => {
+    res.render('./admin/user-edit');
+});
 
 module.exports = admin;
