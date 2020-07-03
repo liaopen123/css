@@ -36,7 +36,9 @@ login.post('', async (req, resp) => {
 
             //重定向 跳转到 user-edit
             req.app.locals.UserInfo = result;
-            resp.redirect("/admin/user-edit");
+            console.log("重定向",);
+
+            resp.redirect("/admin/user");
 
             //
         } else {

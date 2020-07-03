@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const home = require('./router/home');
 const admin = require('./router/admin');
+const upload = require('./router/upload_test');
+const upload_get = require('./router/upload_get');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const loginGuard = require('./middleware/loginGuard');
@@ -30,6 +32,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: 'secret key' }));//secret 秘钥  对数据加密 
 
 app.use('/admin', loginGuard);
+app.get('/upload', upload_get);
+app.post('/upload', upload);
 
 app.use('', home);
 app.use('/admin', admin);

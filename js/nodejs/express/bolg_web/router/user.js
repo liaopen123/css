@@ -1,9 +1,14 @@
 const express = require('express');
+const User = require("../model/user");
+
 
 const user = express.Router();
 
-user.get('/', (req, resp) => {
-    resp.send('接收到get请求');
+user.get('/', async (req, resp) => {
+    let myList = await User.find();
+    console.log(myList);
+
+    resp.render("./admin/user", { myList });
 });
 user.post('/', (req, resp) => {
     console.log(req.body);

@@ -9,8 +9,8 @@ admin.get('', (req, res) => {
 admin.use('/login', login);
 
 admin.use('/user', user);
-admin.get('/user-edit', (req, res) => {
-    res.render('./admin/user-edit');
-});
+admin.get('/user-edit', require("./admin/user_edit"));
+admin.post('/user-edit', require("./admin/user_edit-fn"));
+admin.post('/user-modify', require("./admin/user_modify"));
 
 module.exports = admin;

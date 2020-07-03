@@ -20,7 +20,7 @@ const User = mongoose.model('User', new mongoose.Schema({
     },
     role: {
         type: Number,
-        enum: [1, 2],
+        enum: [0, 1],
     },
     state: {
         type: Number,

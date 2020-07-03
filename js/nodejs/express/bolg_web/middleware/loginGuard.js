@@ -1,5 +1,7 @@
 const loginGuard = function (req, resp, next) {
-    if (req.url != '/login' && !req.session.username) {
+    console.log("req", req.session);
+
+    if (req.url != '/login' && !req.session.userName) {
         resp.redirect("/admin/login");
     } else {
         next();
