@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="form">
+
+        <input type="text" placeholder="输入账号" name="account" />
+        <input type="password" placeholder="输入密码" name="pwd" />
+        <input type="button" value="提交" id="btn" />
+
+    </form>
+
+
+    <form id="fileForm">
+        <div class="form-group">
+            <label for="exampleInputFile">文章封面</label>
+            <input type="file" id="file">
+            <div class="thumbnail-waper">
+                <img class="img-thumbnail" id="img" src="">
+            </div>
+        </div>
+
+        <input type="button" id="btn_upload_file" value="上传">
+    </form>
+
+
+    <div id="result"></div>
+    <script>
+        let form = document.querySelector('#form');
+        let resultDiv = document.querySelector('#result');
+
+        document.querySelector('#btn').addEventListener('click', function () {
+            let formData = new FormData(form);
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', "http://localhost:8080/form_post");
+            xhr.send(formData);
+
+            xhr.onload = function () {
+                let result = xhr.responseText;
+                console.log("result", result);
+
+                resultDiv.innerHTML = result;
+            }
+        });
+        let fileEle = document.querySelector('#file');
+        fileEle.onchange = function () {
+            let formData = new FormData(form);
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', "http://localhost:8080/form_post_file");
+            // 将用户选择的二进制文件追加到表单对象中
+            formData.append('attrName', this.files[0]);
+
+            xhr.send(formData);
+
+            xhr.onload = function () {
+                let result = xhr.responseText;
+                console.log("result", result);
+
+                resultDiv.innerHTML = result;
+                document.querySelector('#img').src = result;
+            }
+        };
+
+
+
+    </script>
+
+
+</body>
+
+</html>

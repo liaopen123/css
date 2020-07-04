@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <p id="ajax_get">
+        ajax的get请求
+    </p>
+    <p id="ajax_post_form">
+        ajax的post请求 且参数为表单类型
+    </p>
+    <p id="ajax_post_json">
+        ajax的post请求 且参数为json类型
+    </p>
+
+</head>
+
+<body>
+
+    <script>
+
+
+        document.querySelector("#ajax_get").addEventListener('click', function () {
+            alert('233');
+            let xhr = new XMLHttpRequest();
+
+            xhr.open("get", "http://localhost:8080/ajax?name=kol&age=23");
+
+            xhr.send();
+
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+                let resText = JSON.parse(xhr.responseText);
+                // document.body.innerHTML = `<h2>${resText.name}</h2>`
+                document.querySelector("#ajax_get").innerHTML = resText.name;
+            }
+        });
+
+
+        document.querySelector("#ajax_post_form").addEventListener('click', function () {
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', "http://localhost:8080/ajax");
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('name=lphkol&age=24');//post请求的参数
+            xhr.onload = function () {
+                document.querySelector("#ajax_post_form").innerHTML = xhr.responseText;
+            }
+        });
+        document.querySelector("#ajax_post_json").addEventListener('click', function () {
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', "http://localhost:8080/ajax_post_json");
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({ name: 'lisi', age: 28 }));//post请求的参数
+            xhr.onload = function () {
+                document.querySelector("#ajax_post_json").innerHTML = xhr.responseText;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="container"></div>
+
+<body>
+    <script src="js/template-web.js"></script>
+    <script id="tpl-user" type="text/html">
+      <h2>{{name}}</h2>
+    </script>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://localhost:8080/artdata');
+        xhr.send();
+        xhr.onload = function () {
+            let name = xhr.responseText;
+            console.log('name', name);
+
+            let html = template('tpl-user', { name });
+            document.querySelector("#container").innerHTML = html;
+        }
+    </script>
+</body>
+
+
+
+</html>

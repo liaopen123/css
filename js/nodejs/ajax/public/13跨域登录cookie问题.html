@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    ajax 跨域登录 请求另外一个服务器的登录接口
+    <form id="form">
+
+        <input type="text" placeholder="输入账号" name="account" />
+        <input type="password" placeholder="输入密码" name="pwd" />
+        <input type="button" value="提交" id="btn" />
+
+    </form>
+    <input type="button" value="检测用户登录状态" id="check_login" />
+    <div id="result"></div>
+
+    <script>
+        let form = document.querySelector("#form");
+        let resultDiv = document.querySelector("#result");
+        let checkLogin = document.querySelector("#check_login");
+        document.querySelector("#btn").addEventListener('click', function () {
+            let formData = new FormData(form);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', "http://localhost:3031/login");
+            // 当发送跨域请求时，携带cookie信息
+            xhr.withCredentials = true;
+            xhr.send(formData);
+
+            xhr.onload = function () {
+                let result = xhr.responseText;
+                resultDiv.innerHTML = result;
+            };
+        });
+
+
+        // 当检测用户状态按钮被点击时
+        checkLogin.onclick = function () {
+            // 创建ajax对象
+            var xhr = new XMLHttpRequest();
+            // 对ajax对象进行配置
+            xhr.open('post', 'http://localhost:3031/checkLogin');
+            // 当发送跨域请求时，携带cookie信息
+            xhr.withCredentials = true;
+            // 发送请求并传递请求参数
+            xhr.send();
+            // 监听服务器端给予的响应内容
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
