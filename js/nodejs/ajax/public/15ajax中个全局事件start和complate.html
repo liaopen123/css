@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="getData" value="发送请求">
+    <div id="result"></div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+
+        $(document).on('ajaxStart', function () {
+            $('#result').html('开始发送请求');
+        });
+        $(document).on('ajaxComplete', function () {
+            $('#result').html('收到请求');
+        });
+        $('#getData').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/base',
+                beforeSend: function () {
+                    console.log('发送开始');
+
+                },
+                success: function (response) {
+                    $('#contentDiv').html(response);
+                },
+                error: function (xhr) { },
+            });
+        });
+    </script>
+</body>
+
+</html>

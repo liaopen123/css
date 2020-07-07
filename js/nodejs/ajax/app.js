@@ -74,6 +74,55 @@ app.post("/form_post_file", (req, res) => {
         res.send(url);
     });
 
+});
+
+
+app.post('/base', (req, res) => {
+    let form = formidable.IncomingForm();
+    form.parse(req, (err, fields, file) => {
+        return res.send('我是服务器返回数据');
+    });
+
+});
+app.post('/post_params', (req, res) => {
+    let { name, age } = req.body;
+    console.log("name", name, age);
+    res.send(`name:${name},age:${age}`);
+
+});
+app.post('/post_json_params', (req, res) => {
+    let { name, age } = req.body;
+    console.log("name", name, age);
+    res.send(`name:${name},age:${age}`);
+
+});
+app.get("/j_get", (req, res) => {
+    let { name, age } = req.query;
+    res.send(`name:${name},,age:${age}`);
 })
+
+app.get("/j_post", (req, res) => {
+    let { name, age } = req.query;
+    res.send(`name:${name},,age:${age}`);
+})
+
+// RESTful风格的api
+app.get("/users", (req, res) => {
+    res.send('获取当前的所有列表');
+});
+app.post("/users/:id", (req, res) => {
+    let id = req.params.id;
+    res.send('查询当前id为' + id + '的值');
+});
+app.delete("/users/:id", (req, res) => {
+    let id = req.params.id;
+    res.send('删除当前id为' + id + '的值');
+});
+app.put("/users/:id", (req, res) => {
+    let id = req.params.id;
+    res.send('修改当前id为' + id + '的值');
+});
 app.listen(8080);
 console.log("server start");
+
+

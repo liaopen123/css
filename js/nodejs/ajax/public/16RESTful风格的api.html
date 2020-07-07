@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="get" value="get" value="获取">
+    <input type="button" id="post" value="post" value="添加创建">
+    <input type="button" id="put" value="put" value="修改">
+    <input type="button" id="delete" value="delete" value="删除">
+    <div id="contentDiv"></div>
+</body>
+
+
+<script src="./js/jquery.min.js"></script>
+<script>
+    $('#get').on('click', function () {
+        $.ajax({
+            type: 'get',
+            url: '/users',
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                $('#contentDiv').html(response);
+            },
+            error: function (xhr) { },
+        });
+    });
+
+
+    $('#post').on('click', function () {
+        $.ajax({
+            type: 'post',
+            url: '/users/1',
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                $('#contentDiv').html(response);
+            },
+            error: function (xhr) { },
+        });
+    });
+    $('#put').on('click', function () {
+        $.ajax({
+            type: 'put',
+            url: '/users/10',
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                $('#contentDiv').html(response);
+            },
+            error: function (xhr) { },
+        });
+    });
+
+    $('#delete').on('click', function () {
+        $.ajax({
+            type: 'delete',
+            url: '/users/20',
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                $('#contentDiv').html(response);
+            },
+            error: function (xhr) { },
+        });
+    });
+</script>
+
+</html>

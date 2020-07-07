@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    基本使用:
+    <input type="button" id="getData" value="获取网络">
+    传递请求参数:
+    <input type="button" id="withParams" value="获取网络(参数为form表单)">
+    <input type="button" id="withJsonParams" value="获取网络(参数为json串)">
+    发送一般的get/post请求:
+    <input type="button" id="j_get" value="获取网络get">
+    <input type="button" id="j_post" value="获取网络post">
+    <div id="contentDiv"></div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $('#getData').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/base',
+                beforeSend: function () {
+                    console.log('发送开始');
+
+                },
+                success: function (response) {
+                    $('#contentDiv').html(response);
+                },
+                error: function (xhr) { },
+            });
+        });
+
+        $('#withParams').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/post_params',
+                data: { name: 'lph233', age: 20 },
+                // contentType: 'application/x-www-form-urlencoded', //默认  可以不写
+                beforeSend: function () {
+                    console.log('发送开始');
+
+                },
+                success: function (response) {
+                    $('#contentDiv').html(response);
+                },
+                error: function (xhr) { },
+            });
+        });
+        let parms = { name: 'lph242424', age: 24 };
+        $('#withJsonParams').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/post_json_params',
+                data: JSON.stringify(parms),
+                contentType: 'application/json',//contenttype 就得改成json了
+                beforeSend: function () {
+                    console.log('发送开始');
+
+                },
+                success: function (response) {
+                    $('#contentDiv').html(response);
+                },
+                error: function (xhr) { },
+            });
+        });
+
+        $('#j_get').click(function () {
+            $.get("/j_get", { name: 'lphqqq_get', age: 23 }, function (response) {
+                console.log(response);
+                $('#contentDiv').html(response);
+            });
+
+        });
+        $('#j_post').click(function () {
+            $.get("/j_post", { name: 'lphqqq_post', age: 23 }, function (response) {
+                console.log(response);
+                $('#contentDiv').html(response);
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
