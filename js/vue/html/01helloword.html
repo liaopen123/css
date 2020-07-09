@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/myvue.css">
+</head>
+
+<body>
+    <div class="app">
+        <div>{{msg}}</div>
+
+        <p> v-cloak用法:</p>
+        <div v-cloak>
+            {{data}}
+        </div>
+        <p> v-text用法:</p>
+        <span v-text="msg"></span>
+        <p> v-html用法:</p>
+        <span v-html="h1Content"></span>
+        <p> v-pre用法(显示原始数据 你写的是什么就是什么):</p>
+        <span v-pre>
+            {{h1Content}}
+        </span>
+        <p> v-once用法(只编译一次 以后数据变化 不再改变):</p>
+        <span v-once>
+            {{msg}}
+        </span>
+        <p> v-model 双向绑定:</p>
+        <input v-model="msg" type="text">
+
+        </input>
+
+
+        <p> v-on 事件绑定:</p>
+        <div>{{num}}</div>
+        <input type="button" v-on:click="num++" value="add">
+        <input type="button" v-on:click="addNum" value="add">
+        简写:<input type="button" @click="addNum()" value="add">
+        v-on携带事件对象:
+        不写括号的就自带的有事件，但是不能够添加其他参数
+        <input type="button" v-on:click="addNum" value="add">
+        写括号的可以添加其他参数，但是不能自动带的有事件，得手动添加。
+        <input type="button" v-on:click="addNum(x,y,$event)" value="add">
+        <p>.stop 阻止冒泡</p>
+        <a v-on:click.stop='handle'>跳转</a>
+        <p>.prevent 阻止默认行为</p>
+        <a v-on:click.prevent='handle'>跳转</a>
+
+        <p>按键修饰符 .enter .delete
+        </p>
+        <input type="text" v-on:keyup.enter="show('敲了回车')" value="enter">
+        <input type="text" v-on:keyup.delete="show('敲了删除')" value="delete">
+
+    </div>
+
+
+    <script src="../js/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '.app',
+            data: {
+                msg: 'hello Vue',
+                data: "加载完 才展示",
+                h1Content: "<h1>233</h1>",
+                num: 0,
+            },
+            methods: {
+                addNum: function () {
+                    this.num++;
+                },
+                show: function (content) {
+                    alert(content);
+
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>
