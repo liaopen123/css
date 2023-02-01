@@ -16,6 +16,6 @@
     "express-art-template": "^1.0.1",
     "express-session": "^1.17.1",
     "formidable": "^1.2.2",
-    "mongoose": "^5.9.20"
+    "mongoose": "^5.13.15"
   }
 }
